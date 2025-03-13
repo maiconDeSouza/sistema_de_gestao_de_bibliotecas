@@ -1,0 +1,15 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    {% include "base/partials/head_config.html" %}
+    <title>{% block head_title %}{% endblock head_title %}</title>
+</head>
+<body>
+    <header></header>
+    <main>
+        {% block main_content %}{% endblock main_content %}
+    </main>
+    <footer></footer>
+</body>
+</html>
