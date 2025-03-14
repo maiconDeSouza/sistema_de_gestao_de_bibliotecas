@@ -51,6 +51,12 @@
   z-index: 900; /* Abaixo do input que terá z-index mais alto */
 }
 
+.btn {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 7px;
+}
+
 body {
   height: 100vh;
   display: grid;
@@ -145,9 +151,6 @@ header nav li a:hover {
   color: var(--color-primary);
 }
 
-header nav input.search {
-  display: none;
-}
 
 header nav label {
   margin-left: auto;
@@ -162,7 +165,9 @@ header nav label:hover {
   color: var(--color-primary);
 }
 
-header nav input.search {
+header nav div.search {
+  width: 37.5rem;
+  height: 6rem;
   display: none;
   position: fixed;
   top: 50%;
@@ -171,12 +176,54 @@ header nav input.search {
   z-index: 1000; /* Acima do overlay */
   padding: 0.5rem 1rem;
   font-size: 1.2rem;
-  border: 1px solid var(--color-border);
-  border-radius: 4px;
 }
 
-header nav input#check:checked ~ input.search, header nav input#check:checked ~ .overlay{
+header nav input#check:checked ~ div.search, header nav input#check:checked ~ .overlay{
   display: block;
+}
+
+header nav div.search form {
+  display: flex;
+  gap: 2rem;
+}
+
+header nav div.search form input {
+  width: 25.5rem;
+  padding: 1rem;
+  border-radius: 7px;
+  border: 1px solid var(--color-border);
+  font-size: 1.2rem;
+}
+
+header nav div.search form input:focus {
+  border: 2px solid var(--color-primary); /* Borda vermelha de 2px */
+  outline: none; /* Remove o contorno padrão do navegador */
+}
+
+header nav div.search form button.btn {
+  background-color: var(--color-accent);
+  font-weight: 900;
+  color: var(--btn-text-color);
+  transition: all .6s;
+}
+
+header nav div.search form button.btn:hover {
+  background-color: var(--color-primary);
+}
+
+header nav div.search form label.btn {
+  padding: 1rem;
+}
+
+header nav div.search form label.btn i {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  font-weight: 900;
+  transition: all .6s;
+}
+
+header nav div.search form label.btn i:hover {
+  transform: scale(1.5);
 }
 
 /*
