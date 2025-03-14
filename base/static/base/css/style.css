@@ -1,3 +1,6 @@
+/*
+***** Config *****
+*/
 :root {
     /* Cores Principais */
     --color-background: #ffffff;   /* Fundo geral */
@@ -14,6 +17,10 @@
     /* Exemplo para Botões */
     --btn-bg-color:     var(--color-primary);
     --btn-text-color:   #ffffff;
+
+    --black: #000;
+    --header-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --footer-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1);
   }
   
 
@@ -26,3 +33,152 @@
     font-family: "Crimson Text", serif;
 }
 
+.container {
+  width: 90%;
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.overlay {
+  display: none;
+  position: fixed; /* Cobre a tela inteira */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Cor preta com 50% de opacidade */
+  z-index: 900; /* Abaixo do input que terá z-index mais alto */
+}
+
+body {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+header {
+  min-height: 7.5rem;
+  box-shadow: var(--header-shadow);
+}
+
+footer {
+  height: 5rem;
+  box-shadow: var(--footer-shadow);
+}
+
+header, footer {
+  background-color: var(--color-background);
+}
+
+/*
+***** Config-end *****
+*/
+
+
+
+/*
+***** Header *****
+*/
+
+header {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+header div {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+header div i {
+  font-size: 3rem;
+  color: var(--color-primary);
+}
+
+header div h1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header div h1 strong {
+  font-size: 2.5rem;
+  line-height: 1.2rem;
+  color: var(--black);
+}
+
+header div h1 span {
+  font-weight: 100;
+  line-height: 1.2rem;
+  color: var(--color-primary);
+}
+
+header nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header nav ul {
+  flex: 1; 
+  display: flex;
+  justify-content: center; 
+  gap: 0.8rem;
+}
+
+header nav li a {
+  display: block;
+  color: var(--color-text);
+  font-size: 1.2rem;
+  font-weight: 900;
+  transition: all .6s;
+}
+
+header nav li a:hover {
+  color: var(--color-primary);
+}
+
+header nav input.search {
+  display: none;
+}
+
+header nav label {
+  margin-left: auto;
+  background-color: transparent;
+  border: none;
+  color: var(--color-text);
+  font-weight: 900;
+  transition: all .6s;
+}
+
+header nav label:hover {
+  color: var(--color-primary);
+}
+
+header nav input.search {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000; /* Acima do overlay */
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+}
+
+header nav input#check:checked ~ input.search, header nav input#check:checked ~ .overlay{
+  display: block;
+}
+
+/*
+***** Header-end *****
+*/
