@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'base.apps.BaseConfig',
     'book.apps.BookConfig',
     'author.apps.AuthorConfig',
+    'account.apps.AccountConfig'
 ]
 
 MIDDLEWARE = [

@@ -1,9 +1,31 @@
+from author.models import Author
 import re
 from django.db import models
 from django.core.exceptions import ValidationError
+Q = models.Q
 
 
-from author.models import Author
+class BookManager(models.Manager):
+    def filter_book(self, pk_author, status):
+        books = self.all()
+        available_authors = Author.objects.all()
+
+        if status == 'available' or status == 'on_loan':
+            books = books.filter(status=status)
+            available_authors = Author.objects.filter(
+                book_author__status=status).distinct()
+
+        if pk_author and pk_author.isdigit():
+            books = books.filter(author=pk_author)
+
+        return books, available_authors
+
+    def search_title_isbn(self, search):
+        books = self.filter(
+            Q(title__icontains=search) |
+            Q(isbn__icontains=search)
+        )
+        return books
 
 
 def validate_ibns(value):
@@ -40,6 +62,8 @@ class Book(models.Model):
     status = models.CharField(
         max_length=10, choices=STATUS_CHOICES, default=('available', 'disponível'),)
     created_at = models.DateTimeField(auto_now_add=True)
+
+    objects = BookManager()
 
     def __str__(self):
         return f"{self.title} ({self.isbn})"

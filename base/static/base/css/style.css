@@ -116,13 +116,13 @@ header div h1 {
 
 header div h1 strong {
   font-size: 2.5rem;
-  line-height: 1.2rem;
+  line-height: 1.8rem;
   color: var(--black);
 }
 
 header div h1 span {
   font-weight: 100;
-  line-height: 1.2rem;
+  line-height: 1.8rem;
   color: var(--color-primary);
 }
 
@@ -208,7 +208,7 @@ header nav div.search form button.btn {
 }
 
 header nav div.search form button.btn:hover {
-  background-color: var(--color-primary);
+  transform: scale(1.05);
 }
 
 header nav div.search form label.btn {
@@ -305,4 +305,49 @@ header nav div.search form label.btn i:hover {
 
 /*
 ***** List Books-end *****
+*/
+
+
+/*
+***** Login *****
+*/
+main section.form-login {
+  display: grid;
+  place-items: center;
+}
+
+main section.form-login form {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+main section.form-login form label {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+main section.form-login form label input {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+main section.form-login form button {
+  background-color: var(--color-primary);
+  color: var(--btn-text-color);
+  font-weight: 900;
+  transition: all .6s;
+}
+
+main section.form-login form button:hover {
+  transform: scale(1.05);
+}
+
+/*
+***** Login-end *****
 */

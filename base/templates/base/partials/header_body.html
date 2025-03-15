@@ -1,23 +1,22 @@
 <div>
     <i class="bi bi-book-half"></i>
     <h1>
-        <strong>book</strong>
-        <span>store</span>
+        <strong>Library</strong>
+        <span>Manager</span>
     </h1>
 </div>
 <nav class="container">
     <ul>
-        <li>
-            <a href="">Home</a>
-        </li>
-        <li>
-            <a href="">Cadastrar Livros</a>
-        </li>
+        {% if user.is_authenticated %}
+            {% include "base/partials/login.html" %}
+        {% else %}
+            {% include "base/partials/logout.html" %}
+        {% endif %}
     </ul>
     <input type="checkbox" id="check" hidden>
     <div class="search">
-        <form method="get">
-            <input type="text" placeholder="faça sua pesquisa" class="search">
+        <form method="get" action="{% url "search" %}">
+            <input type="text" name="q" placeholder="faça sua pesquisa" class="search">
             <button type="submit" class="btn">Buscar</button>
             <label for="check" class="btn">
                 <i class="bi bi-x-lg"></i>

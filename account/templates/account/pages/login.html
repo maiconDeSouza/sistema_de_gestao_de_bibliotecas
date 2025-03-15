@@ -1,0 +1,29 @@
+{% extends "base/pages/base.html" %}
+
+{% block head_title %}Login{% endblock head_title %}
+
+{% block main_content %}
+    <section class="form-login container">
+        <form method="post">
+            {% csrf_token %}
+            <label for="id_username">
+                <span>Nome de Usuário:</span>
+                {{forms.username}}
+            </label>
+            <label for="id_password">
+                <span>Senha:</span>
+                {{forms.password}}
+            </label>
+            <button type="submit" class="btn">Fazer o Login</button>
+        </form>
+        <div class="error">
+            {% if forms.non_field_errors %}
+                <ul class="errorlist">
+                    {% for error in forms.non_field_errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+    </section>
+{% endblock main_content %}

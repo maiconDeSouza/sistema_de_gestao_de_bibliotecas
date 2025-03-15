@@ -2,6 +2,10 @@
 {% block head_title %}BookStore{% endblock head_title %}
 {% block main_content %}
 <section class="list-books container">
+    <form action="{% url "filter" %}" method="get" id="filter">
+        {{form.author}}
+        {{form.status}}
+    </form>
     <table>
         <thead>
             <tr>
@@ -14,7 +18,7 @@
         <tbody>
             {% for book in books  %}
                 <tr>
-                    <td>{{book.title}}</td>
+                    <td title="{{book.isbn}}">{{book.title}}</td>
                     <td>{{book.author}}</td>
                     <td>{{book.get_status_display}}</td>
                     <td>
