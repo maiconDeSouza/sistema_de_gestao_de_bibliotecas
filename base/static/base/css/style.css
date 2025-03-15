@@ -229,3 +229,80 @@ header nav div.search form label.btn i:hover {
 /*
 ***** Header-end *****
 */
+
+/*
+***** List Books *****
+*/
+
+.list-books table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: var(--color-background); /* Usando a variável */
+}
+
+.list-books th,
+.list-books td {
+  padding: 1rem 1.5rem;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border); /* Usando a variável */
+}
+
+.list-books th {
+  background-color: var(--color-secondary); /* Usando a variável */
+  color: #fff;
+  font-weight: 600;
+}
+
+.list-books tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.list-books tbody tr:hover {
+  background-color: #f0f0f0;
+}
+
+.list-books td a {
+  padding: 0.5rem 1rem;
+  margin-right: 0.5rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.list-books td a:first-child {
+  background-color: var(--color-primary); /* Usando a variável */
+  color: #fff;
+}
+
+.list-books td a:first-child:hover {
+  background-color: #c02026;
+}
+
+.list-books td a:last-child {
+  background-color: var(--color-accent); /* Usando a variável */
+  color: var(--color-text); /* Usando a variável */
+}
+
+.list-books td a:last-child:hover {
+  background-color: #e08e0b;
+}
+
+.list-books tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.list-books tbody tr td p {
+  text-align: center;
+  padding: 2rem;
+  font-style: italic;
+  color: var(--color-text); /* Usando a variável */
+}
+
+/*
+***** List Books-end *****
+*/

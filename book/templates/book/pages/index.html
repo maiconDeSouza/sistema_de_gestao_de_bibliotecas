@@ -1,0 +1,31 @@
+{% extends "base/pages/base.html" %}
+{% block head_title %}BookStore{% endblock head_title %}
+{% block main_content %}
+<section class="list-books container">
+    <table>
+        <thead>
+            <tr>
+                <th>Nome do Livro</th>
+                <th>Author</th>
+                <th>Disponibilidade</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books  %}
+                <tr>
+                    <td>{{book.title}}</td>
+                    <td>{{book.author}}</td>
+                    <td>{{book.get_status_display}}</td>
+                    <td>
+                        <a href="{% url "status" pk=book.pk status='on_loan' %}">emprestar</a>
+                        <a href="{% url "status" pk=book.pk status='available' %}">devolver</a>
+                    </td>
+                </tr>
+            {% empty %}
+                <p>Não Há Livros!!!!</p>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+{% endblock main_content %}
