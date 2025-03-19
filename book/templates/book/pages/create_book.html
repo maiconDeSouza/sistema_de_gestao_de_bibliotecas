@@ -1,0 +1,26 @@
+{% extends "base/pages/base.html" %}
+{% block head_title %}Cadastrar novo Livro{% endblock head_title %}
+{% block main_content %}
+    <section class="create-book container">
+        <form method="post">
+            {% csrf_token %}
+            <label for="id_title">
+                <span>Título do Livro:</span>
+                {{form.title}}
+            </label>
+            <label for="id_author">
+                <span>Autor: </span>
+                {{form.author}}
+            </label>
+            <label for="id_isbn">
+                <span>isbn</span>
+                {{form.isbn}}
+            </label>
+            <label for="id_publication_date">
+                <span>Publicado em:</span>
+                {{form.publication_date}}
+            </label>
+            <button type="submit" class="btn">Cadastrar</button>
+        </form>
+    </section>
+{% endblock main_content %}

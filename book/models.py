@@ -60,7 +60,7 @@ class Book(models.Model):
                             validators=[validate_ibns])
     publication_date = models.DateField()
     status = models.CharField(
-        max_length=10, choices=STATUS_CHOICES, default=('available', 'disponível'),)
+        max_length=10, choices=STATUS_CHOICES, default='available',)
     created_at = models.DateTimeField(auto_now_add=True)
 
     objects = BookManager()

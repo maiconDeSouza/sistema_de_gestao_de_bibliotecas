@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect, get_list_or_404
-from django.views.generic import ListView
+from django.views.generic import ListView, CreateView
 from django.views import View
 
 from .models import Book
@@ -15,7 +15,7 @@ class ListBooks(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['form'] = BookForms()
+        context['form'] = BookForms(is_filter=True)
         return context
 
 
@@ -46,3 +46,10 @@ class ChangeStatus(View):
         book.save()
 
         return redirect('index')
+
+
+class CreateNewbook(CreateView):
+    model = Book
+    form_class = BookForms
+    template_name = 'book/pages/create_book.html'
+    success_url = '/'
