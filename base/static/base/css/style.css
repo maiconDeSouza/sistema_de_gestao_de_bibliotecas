@@ -376,6 +376,11 @@ main section.create-book form label input[type="text"] {
   border-radius: 8px;
 }
 
+main section.create-book form label i {
+  color: var(--color-primary);
+  margin-left: 1rem;
+}
+
 main section.create-book form button {
   background-color: var(--color-primary);
   color: var(--color-background);
