@@ -1,0 +1,29 @@
+{% extends "base/pages/base.html" %}
+
+{% block head_title %}Cadastrar{% endblock head_title %}
+
+{% block main_content %}
+    <section class="form-login container">
+        <form method="post">
+            {% csrf_token %}
+            <label for="name">
+                <span>Nome do Autor:</span>
+                {{form.name}}
+            </label>
+            <label for="id_bio">
+                <span>Biografia:</span>
+                {{form.bio}}
+            </label>
+            <button type="submit" class="btn">Cadastrar</button>
+        </form>
+        <div class="error">
+            {% if forms.non_field_errors %}
+                <ul class="errorlist">
+                    {% for error in forms.non_field_errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+    </section>
+{% endblock main_content %}

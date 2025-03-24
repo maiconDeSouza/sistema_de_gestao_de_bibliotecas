@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect, get_list_or_404
 from django.views.generic import ListView, CreateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import View
 
 from .models import Book
@@ -48,8 +49,9 @@ class ChangeStatus(View):
         return redirect('index')
 
 
-class CreateNewbook(CreateView):
+class CreateNewbook(LoginRequiredMixin, CreateView):
     model = Book
     form_class = BookForms
     template_name = 'book/pages/create_book.html'
     success_url = '/'
+    login_url = '/account/login/'
